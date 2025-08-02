@@ -1,0 +1,51 @@
+print("Welcome to the currency converter!")
+
+usd_to_eur = 0.91
+usd_to_rub = 93.5
+usd_to_gbp = 0.78
+eur_to_usd = 1 / usd_to_eur
+rub_to_usd = 1 / usd_to_rub
+gbp_to_usd = 1 / usd_to_gbp
+
+while True:
+    print("\nChoose the transfer currency:")
+    print("1: USD -> EUR")
+    print("2: USD -> RUB")
+    print("3: USD -> GBP")
+    print("4: EUR -> USD")
+    print("5: RUB -> USD")
+    print("6: GBP -> USD")
+
+    try:
+        choice = int(input("enter the transfer currency (1-6): "))
+        if choice < 1 or choice > 6:
+            print("error: choose a number between 1 and 6. ")
+            continue
+        amount = float(input("enter the amount: "))
+    except ValueError:
+        print("error: emter a valid number.")
+        continue
+
+    if choice == 1:
+        result = amount * usd_to_eur
+        print(f"{amount} USD = {round(result, 2)} EUR")
+    elif choice == 2:
+        result = amount * usd_to_rub
+        print(f"{amount} USD = {round(result, 2)} RUB")
+    elif choice == 3:
+        result = amount * usd_to_gbp
+        print(f"{amount} USD = {round(result, 2)} GBP")
+    elif choice == 4:
+        result = amount * eur_to_usd
+        print(f"{amount} EUR = {round(result, 2)} USD")
+    elif choice == 5:
+        result = amount * rub_to_usd
+        print(f"{amount} RUB = {round(result, 2)} USD")
+    elif choice == 6:
+        result = amount * gbp_to_usd
+        print(f"{amount} GBP = {round(result, 2)} USD")
+
+    again = input("/nDo you want to convert another currency? (yes/no): ").lower()
+    if again != "yes":
+        print("thank you for using the currency converter!")
+        break
