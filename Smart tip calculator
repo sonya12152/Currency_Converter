@@ -1,0 +1,17 @@
+print("welcome to the tip calculator! ")
+
+while True:
+    bill = float(input("enter the bill amount: l))
+    tip_percent = float(input("enter the tip percentage (e.g. 10, 15, 20): "))
+
+    tip_rate = tip_percent / 100
+    tip_amount = bill * tip_rate
+    total_amount = bill + tip_amount
+
+    print(f"tip amount: ${round(tip_ampunt, 2)}")
+    print(f"total amount to pay: ${round(total_amount, 2)}")
+
+    again = input("\nDo you want to calculate again? (yes/no): ").lower()
+    if again != "yes":
+        print("Thanks for using the tip calculator!")
+        break
