@@ -1,0 +1,12 @@
+print("🌱 Habit Tracker 🌱")
+habits = ["Drink water💦", "Exersize🏃‍♀️", "Study Python🐍", "Cooking👩‍🍳", "Cleaning🧹"]
+progress = {}
+for habit in habits:
+    answer = input(f"Did you do '{habit}' today? (yes/no): ").lower()
+    if answer == "yes":
+        progress[habit] = "✅"
+    else:
+        progress[habit] = "❌"
+print("\nYour progress today:")
+for habit, status in progress.items():
+    print(f"{habit}: {status}")
