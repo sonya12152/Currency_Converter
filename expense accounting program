@@ -1,0 +1,23 @@
+try:
+    with open("expenses.txt", "r", encoding="utf-8") as file:
+        expenses = file.readlines()
+except FileNotFoundError:
+    expenses = []
+  
+print("=== Expense Tracker ===")
+print("Your past expenses:")
+if expenses:
+    for expense in expenses:
+        print(expense.strip())
+else:
+    print("no expenses recorded yet.")
+  
+while True:
+    amount = input("enter the amount (or 'exit' to quit): ")
+    if amount.lower() == "exit":
+        print("exitting the program. Goodbye!")
+        break
+    description = input("enter description of the expense: ")
+    with open("expenses.txt", "a", encoding="utf-8") as file:
+        file.write(f"{amount} - {description}\n")
+    print("expense fecorded successfully!")
